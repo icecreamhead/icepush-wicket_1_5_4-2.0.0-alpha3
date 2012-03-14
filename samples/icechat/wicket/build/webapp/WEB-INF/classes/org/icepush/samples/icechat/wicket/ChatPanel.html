@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+ *
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Original Code is ICEfaces 1.5 open source software code, released
+ * November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2009 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ *
+-->
+<html xmlns:wicket>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>ChatPanel</title>
+    </head>
+    <body>
+        <wicket:panel>
+            <script wicket:id="pushJavascript" type="text/javascript"></script>
+            <form wicket:id="chatRoomForm">
+                <div class="chatRoomHeader">
+                    Chat Room <span wicket:id="currentChatSessionHolder.session.room.name">currentChatSessionHolder.session.room.name</span>
+                </div>
+                <div class="chatRoomUsers">
+                    <div class="chatViewSubHeader">Who's Here?</div>
+                    <span wicket:id="currentChatSessionHolder.session.room.userChatSessions">
+                        <span wicket:id="userName">userChatSession.user.name</span><br/>
+                    </span>
+                </div>
+                <div class="chatRoomMessages">
+                    <div class="chatViewSubHeader">Messages</div>
+                    <span wicket:id="currentChatSessionHolder.session.room.messages">
+                        <span wicket:id="created">msg.created</span>
+                        &nbsp;<span wicket:id="userChatSession.user.name">msg.userChatSession.user.name</span> said
+                        &nbsp;'<span wicket:id="message">msg.message</span>'<br/>
+                    </span>
+                </div>
+                <div class="clearer"/>
+                <div class="addNewMessage">
+                    New Message&nbsp;
+                    <input wicket:id="messageInput" style="width:40%;"/>
+                    <input wicket:id="send" type="button" value="Send"/>
+                </div>
+            </form>
+
+        </wicket:panel>
+    </body>
+</html>

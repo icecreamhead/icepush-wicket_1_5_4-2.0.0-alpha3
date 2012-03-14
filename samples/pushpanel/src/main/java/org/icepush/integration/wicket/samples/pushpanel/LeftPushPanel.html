@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>LeftPanel</title>
+    </head>
+    <body>
+        <wicket:panel>
+            <script wicket:id="pushJavascript" type="text/javascript">
+            </script>
+            <div class="panelContent">
+                <form wicket:id="leftForm">
+                    <input wicket:id="leftButton" type="button" value="Left Push"/>
+                    <br />
+                    <input wicket:id="leftClear" type="button" value="Clear List" />
+                    <br />
+                    <span wicket:id="pushListView">
+                        <span wicket:id="pushSource">push source</span>
+                        <br />
+                    </span>
+                </form>
+            </div>
+        </wicket:panel>
+    </body>
+</html>

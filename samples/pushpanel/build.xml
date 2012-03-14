@@ -1,0 +1,54 @@
+<!--
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Initial Developer of the Original Code is ICEsoft Technologies Canada, 
+ * Corp. Portions created by ICEsoft are Copyright (C) 2004-2010 ICEsoft 
+ * Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+-->
+
+
+
+
+<project name="icepush-wicket-pushpanel" default="war">
+
+	<property file="../samples.properties" />
+	<property file="${root.offset}/build.properties" />
+
+	<import file="${root.offset}/build-common.xml" />
+
+	<fileset id="icepush.wicket.dist" file="${root.offset}/integration/wicket/core/${dist.dir}/icepush-wicket.jar" />
+	<fileset id="wicket.lib" dir="${root.offset}/integration/wicket/core/lib" />
+	
+	<target name="compile" depends="pre.compile" description="compile web application source">
+		<compile>
+			<add.classpath.elements>
+				<fileset refid="icepush.wicket.dist" />
+				<fileset refid="wicket.lib" />
+			</add.classpath.elements>
+		</compile>
+
+	</target>
+
+	<target name="war" depends="compile" description="generate .war file">
+		<build.war>
+			<add.libs>
+				<fileset refid="icepush.wicket.dist" />
+				<fileset refid="wicket.lib" />
+			</add.libs>
+		</build.war>
+	</target>
+</project>
+

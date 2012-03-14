@@ -1,0 +1,109 @@
+<!--
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Original Code is ICEfaces 1.5 open source software code, released
+ * November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2010 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ *
+  -->
+<project name="icepush" default="jar" basedir=".">
+
+    <property file="local.properties"/>
+    <property file="build.properties"/>
+    <property name="root.offset" value=".."/>
+    <property name="product" value="ICEpush"/>
+    <property name="version.primary" value="1"/>
+    <property name="version.secondary" value="0"/>
+    <property name="version.tertiary" value="0"/>
+    <property file="${root.offset}/build.properties"/>
+    <property name="product.info" value="org/icepush/ProductInfo.java"/>
+
+    <import file="${root.offset}/build-common.xml"/>
+
+    <target name="product.info" description="update product information">
+        <sequential>
+            <tempfile property="svninfo.log"/>
+            <exec executable="svn" failonerror="no">
+                <arg line="info"/>
+            </exec>
+            <loadfile property="revision" srcFile="${svninfo.log}" failonerror="no">
+                <filterchain>
+                    <linecontainsregexp>
+                        <regexp pattern="Last Changed Rev: "/>
+                    </linecontainsregexp>
+                    <deletecharacters chars="Last Changed Rev: "/>
+                    <striplinebreaks/>
+                </filterchain>
+            </loadfile>
+            <delete file="${svninfo.log}"/>
+
+            <buildnumber/>
+
+            <copy file="conf/${product.info}"
+                  tofile="${java.dir}/${product.info}"
+                  overwrite="true">
+                <filterchain>
+                    <replacetokens>
+                        <token key="company" value="${company}"/>
+                        <token key="product" value="${product}"/>
+                        <token key="release.type" value="${release.type}"/>
+                        <token key="version.primary" value="${version.primary}"/>
+                        <token key="version.secondary" value="${version.secondary}"/>
+                        <token key="version.tertiary" value="${version.tertiary}"/>
+                        <token key="build.number" value="${build.number}"/>
+                        <token key="revision" value="${revision}"/>
+                    </replacetokens>
+                </filterchain>
+            </copy>
+        </sequential>
+    </target>
+
+    <target name="clean.product.info">
+        <delete file="${java.dir}/${product.info}" failonerror="no"/>
+    </target>
+
+    <target name="build.bridge" description="collate JS code">
+        <echo>Building ICEpush bridge</echo>
+        <ant antfile="build.javascript.xml" target="build" inheritall="no" dir=".">
+            <property name="no-compress" value="true"/>
+        </ant>
+    </target>
+
+    <target name="compile" depends="pre.compile, product.info" description="compile classes">
+        <compile/>
+        <antcall target="clean.product.info"/>
+    </target>
+
+    <target name="jar" depends="compile, build.bridge" description="fill the jar">
+        <property name="sources" location="${dist.dir}/src.zip"/>
+        <zip destfile="${sources}" compress="false">
+            <fileset dir=".">
+                <include name="src/**"/>
+                <include name="*.xml"/>
+                <include name="*.properties"/>
+            </fileset>
+        </zip>
+        <build.jar>
+            <add.filesets>
+                <file file="${sources}"/>
+                <fileset dir="${build.dir}/javascript"/>
+            </add.filesets>
+        </build.jar>
+        <delete file="${sources}"/>
+    </target>
+</project>
+

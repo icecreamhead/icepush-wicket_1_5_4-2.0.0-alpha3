@@ -1,0 +1,269 @@
+<!--
+ *
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2010 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ *
+-->
+<project name="ICEpush integration common builds">
+
+	<fileset id="dist.icepush.jar" file="${dist.dir}/icepush.jar" />
+
+	<property file="./build.properties" />
+
+	<fileset id="icepush.dist" dir="${root.offset}/core/${dist.dir}">
+		<include name="icepush.jar" />
+	</fileset>
+	
+	<tstamp>
+		<format property="build.time" pattern="yyyy-mm-dd hh:mm:ss" />
+	</tstamp>
+
+	<macrodef name="clean">
+		<element name="add.filesets" optional="true" />
+		<sequential>
+			<delete failonerror="false" includeEmptyDirs="true">
+				<fileset dir="${build.dir}" />
+				<fileset dir="${dist.dir}" />
+				<add.filesets/>
+			</delete>
+		</sequential>
+	</macrodef>
+	
+	<target name="clean">
+		<echo>Cleaning ${ant.project.name}...</echo>
+		<clean/>
+	</target>
+
+	<target name="pre.compile" description="prepare for compilation" depends="clean">
+		<mkdir dir="${build.dir}" />
+		<mkdir dir="${build.dir}/classes" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+	
+	<target name="compile" depends="pre.compile">
+		<icepush.available/>
+		<compile/>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<build.jar/>	
+	</target>
+
+	<macrodef name="compile">
+		<attribute name="src.copy.excludes" default="**/*.java" />
+		<attribute name="failonerror" default="true" />
+		<attribute name="src.javac.excludes" default="" />
+		<attribute name="compile.target" default="1.5" />
+		<attribute name="compile.source" default="1.5" />
+		<attribute name="compile.debug" default="true" />
+		<attribute name="compile.debuglevel" default="lines,vars,source"/>
+		<attribute name="src.dir" default="${java.dir}"/>
+		
+		<element name="add.javac.elements" optional="true" />
+		<element name="add.classpath.elements" optional="true" />
+
+		<sequential>
+			<echo>Compiling ${ant.project.name}...</echo>
+			<mkdir dir="${java.dir}" />
+			<mkdir dir="${build.dir}/classes" />
+
+			<javac destdir="${classes.dir}" sourcepath="" 
+				source="@{compile.source}" 
+				target="@{compile.target}" 
+				debug="@{compile.debug}" 
+				debuglevel="@{compile.debuglevel}"
+				failonerror="@{failonerror}">
+				
+				<src location="@{src.dir}" />
+				<include name="**/*.java" />
+				<exclude name="@{src.javac.excludes}" />
+				<classpath>
+					<fileset refid="icepush.dist" />
+					<fileset dir="${root.offset}/${lib.dir}" />
+					<add.classpath.elements />
+				</classpath>
+				<add.javac.elements />
+				
+			</javac>
+
+			<copy todir="${build.dir}/classes" preservelastmodified="true">
+				<fileset dir="${java.dir}" excludes="@{src.copy.excludes}" />
+			</copy>
+
+		</sequential>
+	</macrodef>
+
+	<macrodef name="build.jar">
+		<attribute name="jar.file.name" default="${ant.project.name}.jar" />
+		<element name="add.excludes" optional="true" />
+		<element name="add.filesets" optional="true" />
+
+		<sequential>
+			<echo>Jarring ${ant.project.name}...</echo>
+			<delete file="${dist.dir}/@{jar.file.name}" />
+			<mkdir dir="${dist.dir}" />	
+			<mkdir dir="${build.dir}/jar"/>		
+			<copy todir="${build.dir}/jar">
+				<fileset dir="${classes.dir}">
+					<include name="**/*"/>
+					<add.excludes />
+				</fileset>
+			</copy>
+			<copy todir="${build.dir}/jar">
+				<fileset dir="${java.dir}">
+					<include name="src/**" />
+					<include name="*.xml" />
+					<include name="*.properties" />
+				</fileset>
+			</copy>
+			
+			<copy todir="${build.dir}/jar/META-INF" failonerror="false" >
+				<fileset dir="${meta.dir}">
+	            	<include name="*.*"/>
+	            </fileset>
+			</copy>
+			
+			<jar destfile="${dist.dir}/@{jar.file.name}" duplicate="fail">
+				<fileset dir="${build.dir}/jar">
+					<include name="**/*"></include>
+				</fileset>
+				<fileset dir="${java.dir}" includes="**/*.java"/>
+				<add.filesets/>
+				<manifest>
+	                <attribute name="Built-By" value="${user.name}"/>
+	                <section name="org.icepush">
+	                    <attribute name="Implementation-Title"
+	                               value="${product}"/>
+	                    <attribute name="Implementation-Version"
+	                               value="${release.type} ${version.primary}.${version.secondary}.${version.tertiary}_${build.number} (${build.time})"/>
+	                    <attribute name="Implementation-Vendor"
+	                               value="${company}"/>
+	                </section>
+	            </manifest>
+			</jar>			
+		</sequential>
+	</macrodef>
+
+	<macrodef name="build.war">
+		<attribute name="war.file.name" default="${ant.project.name}.war" />
+		<attribute name="web.xml" default="${web.inf.dir}/web.xml" />
+		<element name="add.filesets" optional="true" />
+		<element name="add.libs" optional="true" />
+
+		<sequential>
+			<echo>Building war @{war.file.name}...</echo>
+			<mkdir dir="${dist.dir}" />
+			<mkdir dir="${build.dir}/webapp" />
+			<copy todir="${build.dir}/webapp" preservelastmodified="true" verbose="true">
+				<fileset dir="${web.dir}">
+					<include name="**" />
+				</fileset>
+			</copy>
+			<icepush.available/>
+			<copy todir="${build.dir}/webapp/WEB-INF/lib" preservelastmodified="true" verbose="true">
+				<fileset refid="icepush.dist"/>
+				<add.libs />
+			</copy>
+			<mkdir dir="${build.dir}/webapp/WEB-INF/classes" />
+			<copy todir="${build.dir}/webapp/WEB-INF/classes" preservelastmodified="true" verbose="true">
+				<fileset dir="${build.dir}/classes">
+					<include name="**" />
+				</fileset>
+			</copy>
+
+			<war basedir="${build.dir}/webapp" destfile="${dist.dir}/@{war.file.name}" webxml="${build.dir}/webapp/WEB-INF/web.xml">
+				<add.filesets />
+			</war>
+
+		</sequential>
+	</macrodef>
+
+	<macrodef name="icepush.available">
+		<sequential>			
+			<available file="${root.offset}/core/${dist.dir}/icepush.jar" property="icepush.jar.present"/>
+			<echo message="checking for ${root.offset}/core/${dist.dir}/icepush.jar"/>
+			<fail message="The core icepush.jar has to be built before this target. Building from the root will ensure all dependencies are pre-built.">
+				<condition>
+					<not>
+						<isset property="icepush.jar.present" />
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+	
+	<macrodef  name="icepush.jsp.available">
+		<sequential>
+			<available file="${root.offset}/integration/jsp/core/${dist.dir}/icepush-jsp.jar" property="icepush.jsp.available"/>
+			<fail message="The core icepush-jsp.jar has to be built before this target. Building from the root will ensure all dependencies are pre-built.">
+				<condition>
+					<not>
+						<isset property="icepush.jsp.available" />
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+	
+	<fileset id="icepush.jsp.dist" file="${root.offset}/integration/jsp/core/${dist.dir}/icepush-jsp.jar"/>
+	
+	<macrodef  name="icepush.gwt.available">
+		<sequential>
+			<available file="${root.offset}/integration/gwt/core/${dist.dir}/icepush-gwt.jar" property="icepush.gwt.available"/>
+			<fail message="The core icepush-gwt.jar has to be built before this target. Building from the root will ensure all dependencies are pre-built.">
+				<condition>
+					<not>
+						<isset property="icepush.gwt.available" />
+					</not>
+				</condition>
+			</fail>
+		</sequential>
+	</macrodef>
+
+	<target name="jar-icepush-core">
+		<ant dir="./core"/>
+	</target>		
+		
+    <target name="war" depends="compile">
+        <build.war/>
+    </target>
+	
+	<macrodef name="copy.dist.wars">
+		<attribute name="todir" default="${dist.dir}"/>
+		<attribute name="fromdir"/>
+		<sequential>
+			<copy todir="@{todir}">
+				<fileset dir="@{fromdir}" includes="*.war"/>
+			</copy>
+		</sequential>
+	</macrodef>
+	
+	<!-- use this macro to merge the core classes into an integration classes dir. -->
+	<macrodef name="mergeCoreWithIntegration">
+		<attribute name="integration.classes" default="${classes.dir}"/>
+		<sequential>
+			<copy todir="@{integration.classes}" preservelastmodified="true" verbose="true">
+				<fileset dir="../core/${classes.dir}">
+					<include name="**" />
+				</fileset>
+			</copy>
+		</sequential>
+	</macrodef>
+
+</project>

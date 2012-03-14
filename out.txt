@@ -1,0 +1,278 @@
+Buildfile: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build.xml
+
+bin-dist:
+     [echo] Building ICEpush Wicket Binary Integration
+
+jar-icepush-core:
+
+clean:
+     [echo] Cleaning icepush...
+
+pre.compile:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist
+
+product.info:
+     [exec] svn: '.' is not a working copy
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/src/main/java/org/icepush
+
+compile:
+     [echo] Compiling icepush...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 43 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/build/classes
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+
+clean.product.info:
+   [delete] Deleting: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/src/main/java/org/icepush/ProductInfo.java
+
+build.bridge:
+     [echo] Building ICEpush bridge
+
+prepare:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/build/javascript
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/build/javascript
+
+build.bridge.compressed:
+
+build.bridge.uncompressed:
+     [move] Moving 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/build/javascript
+
+build.cleanup:
+
+build:
+
+jar:
+      [zip] Building zip: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist/src.zip
+     [echo] Jarring icepush...
+     [copy] Copying 70 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/build/jar
+      [jar] Building jar: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist/icepush.jar
+   [delete] Deleting: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist/src.zip
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/dist
+
+clean:
+     [echo] Cleaning icepush-wicket...
+
+pre.compile:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/dist
+
+compile:
+     [echo] checking for ../../../core/dist/icepush.jar
+     [echo] Compiling icepush-wicket...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 2 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/build/classes
+
+jar:
+     [echo] Jarring icepush-wicket...
+     [copy] Copying 3 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/build/jar
+      [jar] Building jar: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/dist/icepush-wicket.jar
+
+bin-samples:
+
+clean:
+     [echo] Cleaning icepush-wicket-pushpanel...
+
+pre.compile:
+
+compile:
+     [echo] Compiling icepush-wicket-pushpanel...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 6 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+     [copy] Copying 4 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes
+
+war:
+     [echo] Building war icepush-wicket-pushpanel.war...
+     [copy] Copying 5 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/src/main/webapp/WEB-INF/web.xml to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/web.xml
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/src/main/webapp/css/style.css to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/css/style.css
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/src/main/webapp/images/banner_bg.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/images/banner_bg.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/src/main/webapp/images/banner_hdr.jpg to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/images/banner_hdr.jpg
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/src/main/webapp/images/wicket.png to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/images/wicket.png
+     [echo] checking for ../../core/dist/icepush.jar
+     [copy] Copying 11 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/dist/icepush-wicket.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/icepush-wicket.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist/icepush.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/icepush.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/icepush.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/icepush.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/jsp-api.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/jsp-api.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/jstl-1.2.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/jstl-1.2.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/log4j-1.2.13.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/log4j-1.2.13.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/servlet-api.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/servlet-api.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/slf4j-api-1.5.8.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/slf4j-api-1.5.8.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/slf4j-log4j12-1.5.8.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/slf4j-log4j12-1.5.8.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/wicket-1.4.5.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/wicket-1.4.5.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/yui-compressor.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/lib/yui-compressor.jar
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes
+     [copy] Copying 16 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/Application.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/Application.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/BasePage.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/BasePage.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/HeaderPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/HeaderPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/HeaderPanel.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/HeaderPanel.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/HomePage.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/HomePage.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/HomePage.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/HomePage.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$2.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$2.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$3.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel$3.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/LeftPushPanel.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$2.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$2.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$3.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel$3.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/build/webapp/WEB-INF/classes/org/icepush/integration/wicket/samples/pushpanel/RightPushPanel.html
+      [war] Building war: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/pushpanel/dist/icepush-wicket-pushpanel.war
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/dist
+Trying to override old definition of task clean
+Trying to override old definition of task build.war
+
+clean:
+     [echo] Cleaning icechat-api...
+
+pre.compile:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/build
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/build/classes
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/dist
+
+compile:
+     [echo] Compiling icechat-api...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 24 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/build/classes
+
+jar:
+     [echo] Jarring icechat-api...
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/build/jar
+     [copy] Copying 24 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/build/jar
+      [jar] Building jar: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/dist/icechat-api.jar
+Trying to override old definition of task clean
+Trying to override old definition of task build.war
+
+clean:
+     [echo] Cleaning icechat-auth...
+
+pre.compile:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/build
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/build/classes
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/dist
+
+compile:
+     [echo] Compiling icechat-auth...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 2 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/build/classes
+
+jar:
+     [echo] Jarring icechat-auth...
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/build/jar
+     [copy] Copying 2 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/build/jar
+      [jar] Building jar: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/auth/dist/icechat-auth.jar
+Trying to override old definition of task clean
+Trying to override old definition of task build.war
+
+clean:
+     [echo] Cleaning icechat-cdi...
+
+pre.compile:
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build/classes
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/dist
+
+compile:
+     [echo] Compiling icechat-cdi...
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 8 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build/classes
+
+jar:
+     [echo] Jarring icechat-cdi...
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build/jar
+     [copy] Copying 8 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build/jar
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/build/jar/META-INF
+      [jar] Building jar: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/dist/icechat-cdi.jar
+Trying to override old definition of task clean
+Trying to override old definition of task build.war
+
+clean:
+     [echo] Cleaning icechat-wicket...
+
+compile:
+     [echo] Compiling icechat-wicket...
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes
+    [javac] /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/build-common.xml:91: warning: 'includeantruntime' was not set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 9 source files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes
+    [javac] Note: Some input files use unchecked or unsafe operations.
+    [javac] Note: Recompile with -Xlint:unchecked for details.
+     [copy] Copying 5 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes
+
+war:
+     [echo] Building war icechat-wicket.war...
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/dist
+     [copy] Copying 4 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/src/main/webapp/WEB-INF/beans.xml to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/beans.xml
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/src/main/webapp/WEB-INF/lib/portlet-api-1.0.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/portlet-api-1.0.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/src/main/webapp/WEB-INF/web.xml to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/web.xml
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/src/main/webapp/img/ICEpush-Wicket.png to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/ICEpush-Wicket.png
+     [copy] Copying 3 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/css
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/css/images/loading.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/css/images/loading.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/css/images/typing.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/css/images/typing.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/css/style-common.css to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/css/style-common.css
+     [copy] Copying 10 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/banner_bg.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/banner_bg.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/banner_hdr.jpg to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/banner_hdr.jpg
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/bgslice_footer.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/bgslice_footer.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/bgslice_footer.jpg to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/bgslice_footer.jpg
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/favicon.ico to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/favicon.ico
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/icon_info.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/icon_info.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/loading.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/loading.gif
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/logos/gwt.png to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/logos/gwt.png
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/logos/wicket.png to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/logos/wicket.png
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/common/img/pen.gif to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/img/pen.gif
+     [copy] Copying 15 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/dist/icepush-wicket.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/icepush-wicket.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/core/dist/icepush.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/icepush.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/icepush.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/icepush.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/jsp-api.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/jsp-api.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/jstl-1.2.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/jstl-1.2.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/log4j-1.2.13.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/log4j-1.2.13.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/servlet-api.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/servlet-api.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/slf4j-api-1.5.8.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/slf4j-api-1.5.8.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/slf4j-log4j12-1.5.8.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/slf4j-log4j12-1.5.8.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/wicket-1.4.5.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/wicket-1.4.5.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/integration/wicket/core/lib/yui-compressor.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/yui-compressor.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/lib/weld-wicket.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/weld-wicket.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/lib/weld-servlet.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/weld-servlet.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/api/dist/icechat-api.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/icechat-api.jar
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/cdi/dist/icechat-cdi.jar to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/lib/icechat-cdi.jar
+    [mkdir] Created dir: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes
+     [copy] Copying 27 files to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/AppBasePage.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/AppBasePage.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/AppBasePage.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/AppBasePage.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatManagerViewControllerSessionBean.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatManagerViewControllerSessionBean.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPage$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPage$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPage.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPage.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPage.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPage.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel$2.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel$2.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel$3.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel$3.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel$4.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel$4.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatPanel.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatPanel.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$1$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$1$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$2.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$2.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$3.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel$3.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ChatRoomsPanel.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/ICEchatWicketApplication.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/ICEchatWicketApplication.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/LoginPage$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/LoginPage$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/LoginPage$2.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/LoginPage$2.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/LoginPage.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/LoginPage.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/LoginPage.html to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/LoginPage.html
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/PushPanel$1.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/PushPanel$1.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/PushPanel$WicketPushRequestContextAdapter.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/PushPanel$WicketPushRequestContextAdapter.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/PushPanel.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/PushPanel.class
+     [copy] Copying /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/classes/org/icepush/samples/icechat/wicket/WicketPushContextAdapter.class to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/build/webapp/WEB-INF/classes/org/icepush/samples/icechat/wicket/WicketPushContextAdapter.class
+      [war] Building war: /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/samples/icechat/wicket/dist/icechat-wicket.war
+     [copy] Copying 1 file to /Users/joshcooke/Desktop/icepush-wicket-2.0.0-alpha3/dist
+
+build.all:
+
+BUILD SUCCESSFUL
+Total time: 4 seconds

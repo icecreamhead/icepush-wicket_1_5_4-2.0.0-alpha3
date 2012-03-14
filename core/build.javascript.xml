@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+
+<!--
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Original Code is ICEfaces 1.5 open source software code, released
+ * November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2010 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ *
+  -->
+
+<project name="icepush.js" default="build">
+    <property file="build.properties"/>
+    <property name="src.dir" location="src/main/javascript"/>
+    <property name="lib.dir" location="src/main/javascript/lib"/>
+    <property name="build.dir" location="${basedir}/build/javascript"/>
+    <property name="script" location="${build.dir}/icepush.js"/>
+    <property name="tmp" value="${build.dir}/tmp.js"/>
+
+    <target name="prepare" description="Collate bridge code">
+        <tstamp/>
+        <mkdir dir="${build.dir}"/>
+        <loadfile property="functional.js" srcFile="${lib.dir}/functional.js"/>
+        <loadfile property="oo.js" srcFile="${lib.dir}/oo.js"/>
+        <loadfile property="collection.js" srcFile="${lib.dir}/collection.js"/>
+        <loadfile property="string.js" srcFile="${lib.dir}/string.js"/>
+        <loadfile property="window.js" srcFile="${lib.dir}/window.js"/>
+        <loadfile property="http.js" srcFile="${lib.dir}/http.js"/>
+        <loadfile property="cookie.js" srcFile="${lib.dir}/cookie.js"/>
+        <loadfile property="logger.js" srcFile="${lib.dir}/logger.js"/>
+        <loadfile property="delay.js" srcFile="${lib.dir}/delay.js"/>
+        <loadfile property="element.js" srcFile="${lib.dir}/element.js"/>
+        <loadfile property="event.js" srcFile="${lib.dir}/event.js"/>
+        <loadfile property="command.js" srcFile="${src.dir}/command.js"/>
+        <loadfile property="connection.async.js" srcFile="${src.dir}/connection.async.js"/>
+        <copy file="${src.dir}/application.js" tofile="${tmp}" overwrite="yes">
+            <filterset begintoken="//include " endtoken=".js">
+                <filter token="functional" value="${functional.js}"/>
+                <filter token="oo" value="${oo.js}"/>
+                <filter token="collection" value="${collection.js}"/>
+                <filter token="string" value="${string.js}"/>
+                <filter token="window" value="${window.js}"/>
+                <filter token="http" value="${http.js}"/>
+                <filter token="cookie" value="${cookie.js}"/>
+                <filter token="logger" value="${logger.js}"/>
+                <filter token="delay" value="${delay.js}"/>
+                <filter token="element" value="${element.js}"/>
+                <filter token="event" value="${event.js}"/>
+                <filter token="command" value="${command.js}"/>
+                <filter token="connection.async" value="${connection.async.js}"/>
+            </filterset>
+        </copy>
+    </target>
+
+    <target name="build.bridge.compressed" depends="prepare" unless="no-compress">
+        <echo message="Compressing Javascript code..."/>
+        <java jar="../lib/yui-compressor.jar" fork="yes">
+            <arg line="--preserve-semi"/>
+            <arg value="-o"/>
+            <arg value="${script}"/>
+            <arg value="${tmp}"/>
+        </java>
+    </target>
+
+    <target name="build.bridge.uncompressed" depends="prepare" if="no-compress">
+        <move file="${tmp}" tofile="${script}" overwrite="yes">
+            <filterchain>
+                <stripjavacomments/>
+                <ignoreblank/>
+            </filterchain>
+        </move>
+    </target>
+
+    <target name="build.cleanup">
+        <delete file="${tmp}"/>
+    </target>
+
+    <target name="build" depends="build.bridge.compressed, build.bridge.uncompressed, build.cleanup"
+            description="Build bridge"/>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+</project>

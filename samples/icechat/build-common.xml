@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ *
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Original Code is ICEfaces 1.5 open source software code, released
+ * November 5, 2006. The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2009 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+ *
+  -->
+<project name="icechat-common-build">
+	
+	<property name="common.resource.dir" value="../common"/>
+
+	<fileset id="api" dir="${root.offset}/samples/icechat/api/dist">
+		<include name="**/*.jar" />
+	</fileset>
+	<fileset id="auth" dir="${root.offset}/samples/icechat/auth/dist">
+		<include name="**/*.jar" />
+	</fileset>
+	<fileset id="cdi" dir="${root.offset}/samples/icechat/cdi/dist">
+		<include name="**/*.jar" />
+	</fileset>
+	
+	<target name="clean">
+		<clean/>
+	</target>
+
+	<macrodef name="clean">
+		<element name="add.build.elements" optional="true" />
+		<sequential>
+			<delete includeemptydirs="true" failonerror="false">
+				<fileset dir="${build.dir}" />
+				<fileset dir="${dist.dir}" />
+				<add.build.elements/>
+			</delete>
+		</sequential>
+	</macrodef>
+
+
+	<macrodef name="build.war">
+		<attribute name="war.file.name" default="${ant.project.name}.war" />
+		<attribute name="web.xml" default="${web.inf.dir}/web.xml" />
+		<attribute name="web.dir" default="${web.dir}"/>
+		
+		<element name="add.filesets" optional="true" />
+		<element name="add.libs" optional="true" />
+
+		<sequential>
+			<echo>Building war @{war.file.name}...</echo>
+			<mkdir dir="${dist.dir}" />
+			<mkdir dir="${build.dir}/webapp" />
+			<copy todir="${build.dir}/webapp" preservelastmodified="true" verbose="true">
+				<fileset dir="@{web.dir}">
+					<include name="**" />
+				</fileset>
+			</copy>
+			<copy todir="${build.dir}/webapp/css" preservelastmodified="true" verbose="true">
+				<fileset dir="${common.resource.dir}/css">
+					<include name="**" />
+				</fileset>
+			</copy>
+			<copy todir="${build.dir}/webapp/img" preservelastmodified="true" verbose="true">
+				<fileset dir="${common.resource.dir}/img">
+					<include name="**" />
+				</fileset>
+			</copy>
+			<copy todir="${build.dir}/webapp/WEB-INF/lib" preservelastmodified="true" verbose="true"
+				overwrite="false">
+				<fileset refid="icepush.dist" />
+				<fileset refid="api" />
+				<add.libs />
+			</copy>
+			<mkdir dir="${build.dir}/webapp/WEB-INF/classes" />
+			<copy todir="${build.dir}/webapp/WEB-INF/classes" preservelastmodified="true" verbose="true">
+				<fileset dir="${build.dir}/classes">
+					<include name="**" />
+				</fileset>
+			</copy>
+
+			<war basedir="${build.dir}/webapp" destfile="${dist.dir}/@{war.file.name}" webxml="${build.dir}/webapp/WEB-INF/web.xml">
+				<add.filesets />
+			</war>
+
+		</sequential>
+	</macrodef>
+
+</project>

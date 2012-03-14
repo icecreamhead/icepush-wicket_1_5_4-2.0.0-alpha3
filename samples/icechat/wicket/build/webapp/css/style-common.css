@@ -1,0 +1,295 @@
+/*
+ * Version: MPL 1.1
+ *
+ * "The contents of this file are subject to the Mozilla Public License
+ * Version 1.1 (the "License"); you may not use this file except in
+ * compliance with the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS"
+ * basis, WITHOUT WARRANTY OF ANY KIND, either express or implied. See the
+ * License for the specific language governing rights and limitations under
+ * the License.
+ *
+ * The Initial Developer of the Original Code is ICEsoft
+ * Technologies Canada, Corp. Portions created by ICEsoft are Copyright (C)
+ * 2004-2010 ICEsoft Technologies Canada, Corp. All Rights Reserved.
+ *
+ * Contributor(s): _____________________.
+ *
+*/
+
+body {
+    margin: 0;
+    font-family: Tahoma;
+}
+
+div.clearer {
+    clear: both;
+    height: 0px;
+    visibility: hidden;
+    line-height: .01em;
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    margin: 5px;
+}
+
+ul {
+    margin-left: 5px;
+}
+
+div.header_container {
+    width: 100%;
+    height: 159px;
+    min-width: 730px;
+    background-image: url( '../img/banner_bg.gif' );
+    background-repeat: repeat-x;
+    background-position: left top;
+    width: 100%;
+}
+
+div.header_content {
+    float: left;
+    width: 100%;
+}
+
+.body_container {
+    float: left;    
+    width: 100%;
+}
+
+.body_container_pos{
+    margin-top: -80px;
+    min-width:640px;
+}
+
+/* centers in parent as long as parent is larger then child*/
+div.body_content {
+    margin: 0 auto;
+    width: 980px;
+    padding-left: 25px;
+}
+
+div.body_content div { /*height: 100px;*/
+    
+}
+
+div.contentContainer {
+    background: none;
+    border: none;
+    float: left;
+    padding-left: 6px;
+    width: 720px;
+}
+
+div.footer_container {
+    float: left;
+    width: 100%;
+    height: 95px;
+    min-width: 705px;
+    background-image: url( '../images/bgslice_footer.jpg' );
+    background-repeat: repeat-x;
+    background-position: bottom left;
+}
+
+div.footer_content {
+    height: 95px;
+    background-image: url( '../images/footer_faces.jpg' );
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+div.footer_content div {
+    float: left;
+    padding-top: 60px;
+    padding-left: 10px;
+    color: white;
+}
+
+div.footer_content a,div.footer_content a:hover {
+    color: orange;
+    text-decoration: none;
+}
+
+div.footer_content a {
+    
+}
+
+div.login {
+    border: 15px solid #005D9A;
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #B9D6E8;
+    color: #FFF;
+    font-weight: bold;
+}
+
+.login h2 {
+    color: #0F65B8;
+}
+
+div.footer_content a:hover {
+    text-decoration: underline;
+}
+
+#loginMessages {
+    color: red;
+}
+
+.chatSession {
+    border: 5px solid #B9D6E8;
+    margin: 40px 0 1%;
+    padding: 10px;
+    text-align: right;
+}
+
+#chatSessionPanel{
+    color:#0F65B8;  
+}
+
+#chatPanel{
+    margin: 0 1%;
+}
+
+.chatSession_pos, .mainPanel_pos{
+    overflow: auto;    
+}
+
+.mainPanel_pos{
+	_height:430px; //ie6
+}
+
+.currentChatRoom_pos{
+    margin: 0 0 0 0.5%;
+    width: 80%; 
+    display: block;
+    float: right;
+    height: 100%;
+}
+
+.chatRooms {
+    border: 5px solid #B9D6E8;
+    color: #0F65B8;
+    float: left;
+    padding: 10px;
+    
+}
+
+.chatRooms_pos{
+    height: 100%;
+    min-height: 400px;  
+    position: relative;
+    width: 14%;
+    overflow: auto;
+    _height: 400px;//ie6
+    min-width:150px;
+}
+
+.createNewChatRoom {
+    position: absolute;
+    bottom: 5px;
+    line-height: 15pt;
+    text-align: right;
+    padding: 3px;
+    font-size: 10pt;
+}
+
+.chatRoomView, .chatRoom {
+    border: 5px solid #B9D6E8;
+    color: #0F65B8;
+    min-height: 420px;
+    _height: 400px;//ie6
+}
+
+.chatRoomHeader {
+    font-size: 16pt;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+}
+
+
+.chatRoomUsers {
+    background-color: #EFEFEF;
+    border: thin solid #B9D6E8;
+    float: left;
+    margin: 0 1%;
+    height: 300px;
+    padding: 1%;
+    width: 20%;
+    overflow: auto;
+    _margin: 0 0.5%;//ie6
+}
+
+.chatRoomMessages {
+    background-color: #EFEFEF;
+    border: thin solid #B9D6E8;
+    float: left;
+    margin: 0 1% 0 0;
+    height: 300px;
+    padding: 1%;
+    width: 72%; 
+    overflow:auto;
+}
+
+#chatRoomMessages{
+    overflow:auto;
+    height: 280px;
+}
+
+.addNewMessage {
+    float: right;
+    margin: 10px;
+    text-align: right;
+    width: 100%;
+}
+
+.loading{
+    width: 30px;
+    height: 30px;
+    background: transparent url(./images/loading.gif) no-repeat scroll 0 0; 
+}
+
+.typing{
+    background: transparent url(./images/typing.gif) no-repeat scroll center right; 
+    display:inline;
+}
+
+.login input {
+    width: 150px;
+}
+
+.chatViewSubHeader {
+    font-weight: bold;
+    color: #0F65B8;
+    font-size: 12pt;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
+
+.draft{
+    color:green;
+    position:relative;
+    right:5px;
+    float:right;
+    overflow:hidden;
+    width:80%;
+    text-align:right;
+    white-space: nowrap;
+}
+.highlight { 
+    background-color: #f7f53d;
+}
